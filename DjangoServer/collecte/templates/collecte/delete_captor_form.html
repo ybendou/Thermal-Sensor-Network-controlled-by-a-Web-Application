@@ -1,0 +1,50 @@
+{% extends "collecte/base_generic.html" %}
+
+{% block content %}
+<div style = "text-align:center ; padding: 0px">
+
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+    {% else %}
+    <p>Please login to see this page.</p>
+    {% endif %}
+{% endif %}
+
+
+
+    <h2>Supprimer un capteur</h2>
+    <p style="font-size:20px">Attention, opération irréversible!</p>
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+        {{ form }}
+        </table>
+        <input type="submit" value="Submit" />
+    </form>
+</div>
+<div>
+<p>Liste des capteurs de la maisel</p>
+<table class="w3-table-all">    
+<tr class="w3-hover-green">
+    <th>Identifiant</th>
+    <th>Batiment</th>
+    <th>Chambre</th>
+</tr>
+{% for capteur in capteur_list %}
+<tr class="w3-hover-green">
+    <td>{{capteur.identifiant}}</td>
+    <td><a href = "/collecte/search/{{capteur.room.batiment}}">{{capteur.room.batiment}} </a></td>
+    <td><a href = "/collecte/room_temps/{{capteur.room.batiment}}/{{capteur.room.room_number}}">{{capteur.room.room_number}}</a></td>
+    
+</tr>
+{% endfor %}
+</table>
+</div>
+{% endblock %}
+
