@@ -1,0 +1,134 @@
+<html>
+     <style>
+h1 { color: #111; font-family: 'Open Sans Condensed', sans-serif; font-size: 64px; font-weight: 700; line-height: 64px; margin: 0 0 0; padding: 20px 30px; text-align: center; text-transform: uppercase; }
+
+
+h2 { color: #111; font-family: 'Open Sans Condensed', sans-serif; font-size: 38px; font-weight: 700; line-height: 48px; margin: 0 0 24px; padding: 0 30px; text-align: center; text-transform: uppercase; }
+
+
+p { color: #111; font-family: 'Open Sans', sans-serif; font-size: 16px; line-height: 28px; margin: 0 0 48px; }
+
+
+a { color: #990000; text-decoration: none; }
+
+
+a:hover { text-decoration: underline }
+
+
+
+.line { border-top: 1px solid #111; display: block; margin-top: 2px; padding-top: 5px; position: relative; }
+
+h1{
+    margin-left: 50%;
+    padding : 20px;
+}
+.band{
+    background-color:transparent;
+    top : 0px;
+    padding : 0px;
+}
+.band:hover {
+    background-color :transparent  ;
+}
+h1:hover{
+    color : black;
+}
+body {
+
+	background-image : url(http://www.bois-co21.fr/userfiles/4184/BOIS_CO_fond.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+    background-origin:padding-box  ;
+            
+}
+
+#chartdiv {
+
+  width: 50%;
+  height: 100%;
+  font-size: 11px;
+  background: rgb(222, 222, 223);
+  /* Old browsers */
+  background: rgb(220, 222, 226);
+  /* Old browsers */
+  /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2JkZDJmNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM0ZjYwYTUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -moz-linear-gradient(top, rgba(189, 210, 247, 1) 0%, rgba(79, 96, 165, 1) 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgb(232, 234, 236)), color-stop(100%,  rgb(232, 234, 236)));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgb(230, 231, 233) 0%, rgb(231, 231, 231) 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgb(230, 231, 233) 0%, rgb(231, 231, 231) 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgb(230, 231, 233) 0%, rgb(231, 231, 231) 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, rgb(230, 231, 233) 0%, rgb(231, 231, 231) 100%);
+  /* W3C */
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#bdd2f7', endColorstr='#4f60a5', GradientType=0);
+  /* IE6-8 */
+}
+table 
+{margin-top: 1cm;}
+
+</style>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+
+<div>
+  <button class="w3-button w3-white w3-xxlarge" onclick="w3_open()">&#9776;</button>
+  <div class="w3-dropdown-hover w3-right">
+   {% if user.is_authenticated %}
+
+  
+     
+     <button class="w3-button w3-green ">User: {{ user.get_username }}    </button>
+     <div class="w3-dropdown-content w3-bar-block w3-border" style="right:0">
+     <a href="{% url 'logout'%}?next={{request.path}}" class="w3-bar-item w3-button">Logout</a></div></div>
+     <div class="w3-dropdown-hover w3-right">
+     <button class="w3-button w3-green ">Interface utilisateur   </button>
+     <div class="w3-dropdown-content w3-bar-block w3-border" style="right:0">
+     <a href = "/addRoom" class="w3-bar-item w3-button">Ajouter une chambre</a>
+    <a href = "/deleteRoom" class="w3-bar-item w3-button">Supprimer une chambre</a>
+    <a href = "/changeCaptorRoom" class="w3-bar-item w3-button">Ajouter un capteur ou changer sa chambre</a>
+    <a href = "/deleteCaptor"class="w3-bar-item w3-button">Supprimer un capteur</a>
+</div></div>
+   {% else %}
+   
+       <a href="{% url 'login'%}?next={{request.path}}" class="w3-bar-item w3-button w3-red">Login</a>   
+    </div></div>
+   {% endif %} 
+    </div>
+</div>
+  <div class="w3-container">
+<h1> <center>Suivi de la température des chambres</center></h1>
+<p class="line"></p>
+  </div>
+</div>
+     
+<script>
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+</script>
+
+
+  
+   
+<div class="w3-sidebar w3-bar-block w3-animate-left" style="display:none;z-index:5" id="mySidebar" >
+        <button class="w3-bar-item w3-button w3-large"  onclick="w3_close()">Fermer &times;</button>
+        <a href="/liste" class="w3-bar-item w3-button w3-hover-green">Liste des chambres de la maisel</a>
+        <a href="/collecte/liste_capteurs"  class="w3-bar-item w3-button w3-hover-green">Liste des capteurs de la maisel</a>
+       
+      </div>
+    
+	{% block content %}
+
+   {% endblock %}

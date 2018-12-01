@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% extends "collecte/base_generic.html" %}
+
+{% block content %}
+
+<body>
+<h2> Liste des chambre dans le batiment {{batiment}} </h2>
+
+<table class="w3-table-all">    
+<tr class="w3-hover-green">
+	
+	<th>Chambre</th>
+</tr>
+{% for room in room_list %}
+<tr class="w3-hover-green">
+	
+	<td><a href = "/collecte/room_temps/{{room.batiment}}/{{room.room_number}}">{{room.room_number}}</a></td>
+	
+</tr>
+{% endfor %}
+</table>
+
+<p><a href = "/collecte/liste" >Retourner à la liste de toutes les chambres</a></p>
+</body>
+
+{% endblock %}

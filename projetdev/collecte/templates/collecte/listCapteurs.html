@@ -1,0 +1,30 @@
+{% extends "collecte/base_generic.html" %}
+
+{% block content %}
+
+<h2> Liste de tous les capteurs de la maisel : </h2>
+
+<body>
+
+<table class="w3-table-all">    
+<tr class="w3-hover-green">
+	<th>Identifiant</th>
+	<th>Batiment</th>
+	<th>Chambre</th>
+</tr>
+{% for capteur in capteur_list %}
+<tr class="w3-hover-green">
+	<td>{{capteur.identifiant}}</td>
+	<td><a href = "/collecte/search/{{capteur.room.batiment}}">{{capteur.room.batiment}} </a></td>
+	<td><a href = "/collecte/room_temps/{{capteur.room.batiment}}/{{capteur.room.room_number}}">{{capteur.room.room_number}}</a></td>
+	
+</tr>
+{% endfor %}
+</table>
+
+<p><a href = "/liste" >Liste des chambres de la maisel</a></p>
+</body>
+
+
+
+{% endblock %}

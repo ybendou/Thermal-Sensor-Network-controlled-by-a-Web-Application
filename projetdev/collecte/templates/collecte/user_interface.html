@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% extends "collecte/base_generic.html" %}
+
+{% block content %}
+
+<h1> Interface Utilisateur </h1>
+
+
+
+<p>Bonjour {{user.get_username}}</p>
+
+
+<body>
+<ul>
+  <li><a href = "/addRoom">Ajouter une chambre</a></li>
+  <li><a href = "/deleteRoom">Supprimer une chambre</a></li>
+  <li><a href = "/changeCaptorRoom">Ajouter un capteur ou changer sa chambre</a></li>
+  <li><a href = "/deleteCaptor">Supprimer un capteur</a></li>
+
+
+
+</body>
+{% endblock %}
+
+

@@ -1,0 +1,19 @@
+
+h1{
+    color : rgb(240,150,130);
+    padding : 20px;
+}
+.band{
+    background-color : green;
+    top : 0px;
+    padding : 0px;
+}
+.band:hover {
+    background-color : powderblue;
+}
+h1:hover{
+    color : black;
+}
+         
+
+    

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% extends "collecte/base_generic.html" %}
+
+{% block content %}
+
+
+
+<h2> Liste de toutes les chambres de la maisel : </h2>
+<body>
+	<div class="w3-responsive" ; id="chartdiv"></div> 
+
+<table class="w3-table-all">    
+<tr class="w3-hover-green">
+	<th>Batiment</th>
+	<th>Chambre</th>
+</tr>
+{% for room in room_list %}
+<tr class="w3-hover-green">
+	<td><a href = "/collecte/search/{{room.batiment}}">{{room.batiment}} </a></td>
+	<td><a href = "/collecte/room_temps/{{room.batiment}}/{{room.room_number}}">{{room.room_number}}</a></td>
+	
+</tr>
+{% endfor %}
+</table>
+</body>
+{% endblock %}
